@@ -1,0 +1,15 @@
+10-26 14:02:10.481  4821  4821 I ActivityManager: Start proc 4821:com.example.fittrack/u0a312
+10-26 14:02:11.123  4821  4821 I TrackingEvent: {"event":"app_open","params":{"open_from":"launcher"}}
+10-26 14:02:11.590  4821  4839 D OkHttp: --> GET https://api.example.com/v1/config
+10-26 14:02:12.004  4821  4821 I TrackingEvent: {"event":"screen_view","params":{"screen_name":"home"}}
+10-26 14:02:15.877  4821  4821 I TrackingEvent: {"event":"ad_impression","params":{"ad_format":"native","placement":"home_feed"}}
+10-26 14:02:21.340  4821  4821 I TrackingEvent: {"event":"screen_view","params":{"screen_name":"paywall","source":"home_banner"}}
+10-26 14:02:24.912  4821  4821 I TrackingEvent: {"event":"button_click","params":{"button_name":"subscribe","screen_name":"paywall","plan":"yearly","experiment":"B"}}
+10-26 14:02:31.205  4821  4821 I TrackingEvent: {"event":"purchase_success","params":{"product_id":"fit_pro_yearly","price":"4.99","currency":"USD"}}
+10-26 14:02:31.206  4821  4821 W BillingClient: Acknowledging purchase token ***
+10-26 14:02:40.018  4821  4821 I TrackingEvent: {"event":"debug_ping","params":{"seq":1}}
+10-26 14:03:02.776  4821  4821 I TrackingEvent: {"event":"workout_complete","params":{"workout_id":"w_101","duration_sec":1800,"calories":250}}
+10-26 14:03:05.130  4821  4821 I TrackingEvent: {"event":"rating_submit","params":{"stars":6}}
+10-26 14:03:05.131  4821  4821 I TrackingEvent: {"event":"rating_submit","params":{"stars":5
+10-26 14:03:40.552  4821  4821 I TrackingEvent: {"event":"app_open","params":{"open_from":"default"}}
+10-26 14:03:40.910  4821  4821 I TrackingEvent: {"event":"screen_view","params":{"screen_name":"home"}}

@@ -1,0 +1,21 @@
+row_id,feature,event,trigger,match,param,type,required,allowed
+R01,Open app,app_open,User opens the app from any entry point,,open_from,string,yes,launcher|notification|shortcut
+R02,Home,screen_view,Home screen is shown,screen_name=home,screen_name,string,yes,home
+R03,Paywall,screen_view,Paywall is shown,screen_name=paywall,screen_name,string,yes,paywall
+R03,Paywall,screen_view,Paywall is shown,screen_name=paywall,source,string,yes,home_banner|settings|onboarding
+R04,Paywall,button_click,User taps Subscribe on the paywall,button_name=subscribe,button_name,string,yes,subscribe
+R04,Paywall,button_click,User taps Subscribe on the paywall,button_name=subscribe,screen_name,string,yes,paywall
+R04,Paywall,button_click,User taps Subscribe on the paywall,button_name=subscribe,plan,string,yes,monthly|yearly
+R05,Purchase,purchase_success,Store confirms a purchase,,product_id,string,yes,
+R05,Purchase,purchase_success,Store confirms a purchase,,price,number,yes,0.01..
+R05,Purchase,purchase_success,Store confirms a purchase,,currency,string,yes,USD|EUR|VND
+R06,Ads,ad_impression,An ad is shown,,ad_format,string,yes,banner|interstitial|native|rewarded
+R06,Ads,ad_impression,An ad is shown,,placement,string,yes,
+R06,Ads,ad_impression,An ad is shown,,value_micros,int,yes,0..
+R07,Workout,workout_complete,User finishes a workout,,workout_id,string,yes,
+R07,Workout,workout_complete,User finishes a workout,,duration_sec,int,yes,1..86400
+R07,Workout,workout_complete,User finishes a workout,,calories,int,no,0..
+R08,Rating,rating_submit,User submits the rating popup,,stars,int,yes,1..5
+R09,Settings,button_click,User taps Restore purchase in Settings,button_name=restore_purchase,button_name,string,yes,restore_purchase
+R09,Settings,button_click,User taps Restore purchase in Settings,button_name=restore_purchase,screen_name,string,yes,settings
+R10,Notification,notification_open,User opens the app from a notification,,notif_type,string,yes,daily|promo

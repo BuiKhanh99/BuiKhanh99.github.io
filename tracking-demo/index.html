@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tracking Validator Demo</title>
+<style>
+:root { --bg:#F1F3F6; --surface:#fff; --ink:#111C26; --muted:#566474; --line:#D5DCE4; --accent:#1E4CCB;
+  --pass:#127A50; --pass-bg:#E1F3EA; --fail:#C33B27; --fail-bg:#FBE5E1; --warn:#8A5A0B; --warn-bg:#FBF0DC; --none-bg:#E9EDF2; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0D131A; --surface:#16202A; --ink:#E7ECF1; --muted:#93A1B0; --line:#27333F; --accent:#7E9CFF;
+  --pass:#52C68E; --pass-bg:#123028; --fail:#F27A66; --fail-bg:#3A1D19; --warn:#E5AE52; --warn-bg:#352812; --none-bg:#1C2731; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width:76rem; margin:0 auto; padding:32px max(16px, env(safe-area-inset-left, 0px)) 48px; }
+h1 { font-size:1.7rem; margin:0 0 6px; }
+code { font:12.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+a { color:var(--accent); }
+.muted, .at { color:var(--muted); font-size:13px; }
+.banner { border:1px solid var(--line); border-left:4px solid var(--warn); background:var(--warn-bg); padding:12px 16px; border-radius:8px; margin:16px 0 24px; }
+.tiles { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; }
+.tile { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 16px; min-width:7rem; }
+.tile b { display:block; font-size:1.6rem; line-height:1.1; }
+.tile.pass b { color:var(--pass); } .tile.fail b { color:var(--fail); } .tile.warn b { color:var(--warn); }
+.scroll { overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:10px; }
+table { border-collapse:collapse; width:100%; min-width:62rem; }
+th, td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+th { font:600 11px/1 ui-monospace, Menlo, monospace; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+td.id { font-family:ui-monospace, Menlo, monospace; color:var(--muted); }
+td ul { margin:0; padding:0; list-style:none; display:grid; gap:4px; }
+td:nth-child(2) { min-width:13rem; }
+td.log { width:22rem; }
+td.log code { word-break:break-all; color:var(--muted); }
+.st, .lv { font:600 11px/1 ui-monospace, Menlo, monospace; padding:4px 7px; border-radius:4px; white-space:nowrap; display:inline-block; }
+.pass { color:var(--pass); background:var(--pass-bg); } .fail { color:var(--fail); background:var(--fail-bg); }
+.warn { color:var(--warn); background:var(--warn-bg); } .none { color:var(--muted); background:var(--none-bg); }
+tr.r-fail td:first-child { box-shadow: inset 3px 0 var(--fail); }
+.extras { margin-top:20px; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.extras ul { margin:8px 0 0; padding:0; list-style:none; display:grid; gap:6px; }
+</style></head>
+<body><main>
+<h1>Tracking Validator Demo</h1>
+<p class="muted">Spec <code>spec/sample_tracking_spec.csv</code> · log <code>logs/sample_session.log</code> · 15 log lines read</p>
+<div class="banner">Demo with fake data for a made-up fitness app. It re-implements the validation idea behind an internal QA dashboard; it is not that tool's code.
+<a href="https://github.com/BuiKhanh99/BuiKhanh99.github.io/tree/main/tracking-demo">README and source</a> · <a href="../#cs-01">Back to portfolio</a></div>
+<div class="tiles">
+<div class="tile"><b>10</b><span class="muted">spec rows</span></div>
+<div class="tile pass"><b>3</b><span class="muted">pass</span></div>
+<div class="tile warn"><b>1</b><span class="muted">warn</span></div>
+<div class="tile fail"><b>4</b><span class="muted">fail</span></div>
+<div class="tile"><b>2</b><span class="muted">not tested</span></div>
+</div>
+<div class="scroll"><table>
+<thead><tr><th>Row</th><th>Feature · trigger</th><th>Event · match</th><th>Status</th><th>Findings</th><th>Last payload</th></tr></thead>
+<tbody><tr class="r-fail"><td class="id">R01</td><td><b>Open app</b><div class="muted">User opens the app from any entry point</div></td><td><code>app_open</code></td><td><span class="st fail">FAIL</span><div class="muted">seen 2</div></td><td><ul><li><span class="lv fail">FAIL</span> <code>open_from</code> value &quot;default&quot; not in allowed list (launcher|notification|shortcut) <span class="at">14:03:40.552 · line 14</span></li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;app_open&quot;,&quot;params&quot;:{&quot;open_from&quot;:&quot;default&quot;}}</code></td></tr><tr class="r-pass"><td class="id">R02</td><td><b>Home</b><div class="muted">Home screen is shown</div></td><td><code>screen_view</code><div class=muted><code>screen_name=home</code></div></td><td><span class="st pass">PASS</span><div class="muted">seen 2</div></td><td><ul><li class="muted">All checks passed</li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;screen_view&quot;,&quot;params&quot;:{&quot;screen_name&quot;:&quot;home&quot;}}</code></td></tr><tr class="r-pass"><td class="id">R03</td><td><b>Paywall</b><div class="muted">Paywall is shown</div></td><td><code>screen_view</code><div class=muted><code>screen_name=paywall</code></div></td><td><span class="st pass">PASS</span><div class="muted">seen 1</div></td><td><ul><li class="muted">All checks passed</li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;screen_view&quot;,&quot;params&quot;:{&quot;screen_name&quot;:&quot;paywall&quot;,&quot;source&quot;:&quot;home_banner&quot;}}</code></td></tr><tr class="r-warn"><td class="id">R04</td><td><b>Paywall</b><div class="muted">User taps Subscribe on the paywall</div></td><td><code>button_click</code><div class=muted><code>button_name=subscribe</code></div></td><td><span class="st warn">WARN</span><div class="muted">seen 1</div></td><td><ul><li><span class="lv warn">WARN</span> <code>experiment</code> param not in spec <span class="at">14:02:24.912 · line 7</span></li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;button_click&quot;,&quot;params&quot;:{&quot;button_name&quot;:&quot;subscribe&quot;,&quot;screen_name&quot;:&quot;paywall&quot;,&quot;plan&quot;:&quot;yearly&quot;,&quot;experiment&quot;:&quot;B&quot;}}</code></td></tr><tr class="r-fail"><td class="id">R05</td><td><b>Purchase</b><div class="muted">Store confirms a purchase</div></td><td><code>purchase_success</code></td><td><span class="st fail">FAIL</span><div class="muted">seen 1</div></td><td><ul><li><span class="lv fail">FAIL</span> <code>price</code> expected number, got str (&quot;4.99&quot;) <span class="at">14:02:31.205 · line 8</span></li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;purchase_success&quot;,&quot;params&quot;:{&quot;product_id&quot;:&quot;fit_pro_yearly&quot;,&quot;price&quot;:&quot;4.99&quot;,&quot;currency&quot;:&quot;USD&quot;}}</code></td></tr><tr class="r-fail"><td class="id">R06</td><td><b>Ads</b><div class="muted">An ad is shown</div></td><td><code>ad_impression</code></td><td><span class="st fail">FAIL</span><div class="muted">seen 1</div></td><td><ul><li><span class="lv fail">FAIL</span> <code>value_micros</code> missing required param <span class="at">14:02:15.877 · line 5</span></li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;ad_impression&quot;,&quot;params&quot;:{&quot;ad_format&quot;:&quot;native&quot;,&quot;placement&quot;:&quot;home_feed&quot;}}</code></td></tr><tr class="r-pass"><td class="id">R07</td><td><b>Workout</b><div class="muted">User finishes a workout</div></td><td><code>workout_complete</code></td><td><span class="st pass">PASS</span><div class="muted">seen 1</div></td><td><ul><li class="muted">All checks passed</li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;workout_complete&quot;,&quot;params&quot;:{&quot;workout_id&quot;:&quot;w_101&quot;,&quot;duration_sec&quot;:1800,&quot;calories&quot;:250}}</code></td></tr><tr class="r-fail"><td class="id">R08</td><td><b>Rating</b><div class="muted">User submits the rating popup</div></td><td><code>rating_submit</code></td><td><span class="st fail">FAIL</span><div class="muted">seen 1</div></td><td><ul><li><span class="lv fail">FAIL</span> <code>stars</code> 6 is above max 5 <span class="at">14:03:05.130 · line 12</span></li></ul></td><td class="log"><code>{&quot;event&quot;:&quot;rating_submit&quot;,&quot;params&quot;:{&quot;stars&quot;:6}}</code></td></tr><tr class="r-none"><td class="id">R09</td><td><b>Settings</b><div class="muted">User taps Restore purchase in Settings</div></td><td><code>button_click</code><div class=muted><code>button_name=restore_purchase</code></div></td><td><span class="st none">NOT TESTED</span><div class="muted">seen 0</div></td><td><ul><li class="muted">Not fired in this session</li></ul></td><td class="log"><code>—</code></td></tr><tr class="r-none"><td class="id">R10</td><td><b>Notification</b><div class="muted">User opens the app from a notification</div></td><td><code>notification_open</code></td><td><span class="st none">NOT TESTED</span><div class="muted">seen 0</div></td><td><ul><li class="muted">Not fired in this session</li></ul></td><td class="log"><code>—</code></td></tr></tbody></table></div>
+<div class="extras"><b>Outside the spec</b><ul><li><span class="lv warn">UNKNOWN</span> <code>debug_ping</code> has no spec row <span class="at">14:02:40.018 · line 10</span></li><li><span class="lv fail">PARSE</span> unreadable payload: Expecting &#x27;,&#x27; delimiter: line 1 column 45 (char 44) <span class="at">14:03:05.131 · line 13</span></li></ul></div>
+</main></body></html>
