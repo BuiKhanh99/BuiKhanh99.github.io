@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Bui Pham Ngoc Khanh, QA Engineer. Manual mobile testing supported by AI, real-device evidence and human-reviewed results. ISTQB CTFL 4.0.">
-<title>BPNK QC Portfolio</title>
+<meta name="description" content="Bui Pham Ngoc Khanh, Mobile QC Engineer. Risk-based manual testing supported by AI, real-device evidence and human-reviewed results. ISTQB CTFL 4.0.">
+<title>Bui Pham Ngoc Khanh | Mobile QC Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -149,6 +149,8 @@ section { padding-block: 48px; border-bottom: 1px solid var(--line); }
 /* case summary cards */
 .case-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
 .case-card { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.case-card.primary-case { border-color: var(--accent); box-shadow: var(--shadow); }
+.case-card.primary-case::before { content: "MANUAL QC FIRST"; width: fit-content; padding: 2px 7px; color: var(--accent); background: var(--code-bg); border-radius: 4px; font: 600 .64rem/1.5 var(--f-mono); letter-spacing: .08em; }
 .case-card h3 { font-size: var(--s-lg); font-weight: 800; font-stretch: 110%; }
 .case-card p { font-size: var(--s-sm); color: var(--muted); }
 .tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: auto; padding-top: 6px; }
@@ -163,6 +165,9 @@ section { padding-block: 48px; border-bottom: 1px solid var(--line); }
 
 /* featured case studies */
 .features { display: grid; gap: 14px; }
+.features #cs-01 { order: 1; }
+.features #cs-02 { order: 2; }
+.features #cs-03 { order: 3; }
 .js .feature:not([open]) { display: none; }
 .case-card.active { box-shadow: var(--shadow); border-color: var(--accent); }
 .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); scroll-margin-top: 16px; }
@@ -389,7 +394,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
 <header class="top">
   <div class="wrap">
     <nav class="nav" aria-label="Main">
-      <div class="brand">khanh.bui <span>/ qa-engineer</span></div>
+      <div class="brand">khanh.bui <span>/ mobile-qc-engineer</span></div>
       <ul>
         <li><a href="#work">Work</a></li>
         <li><a href="#process">Process</a></li>
@@ -401,11 +406,11 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
 
     <div class="hero">
       <div>
-        <p class="label"><span class="badge">ISTQB CTFL 4.0</span><span>Mobile apps · Games · Event tracking · Monetization · QA tooling</span></p>
+        <p class="label"><span class="badge">ISTQB CTFL 4.0</span><span>Android · iOS · Ads · IAP · Event tracking</span></p>
         <h1>Bui Pham Ngoc Khanh</h1>
-        <p class="role">QA Engineer | Mobile QA, Analytics &amp; AI-assisted Testing</p>
+        <p class="role">Mobile QC Engineer | Manual Testing with AI Support</p>
         <p class="tagline">Manual testing, made <span class="hl">sharper</span> with AI.</p>
-        <p class="lede">I test Android and iOS apps by risk, collect evidence from real devices, and use AI tools to reduce repeated work. Every result still gets human review.</p>
+        <p class="lede">I find product risks through manual testing on real devices. AI helps with repeated steps and evidence; I own the scope, investigation and final QC result.</p>
         <div class="cta">
           <a class="btn btn-primary" href="#work">View case studies</a>
           <a class="btn btn-ghost" href="#contact">Contact</a>
@@ -421,7 +426,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
           <li><span class="id">Case 10</span><span class="name">Swipe lock on: swiping must not trigger anything</span><span class="pill fail">FAIL</span></li>
         </ol>
         <div class="bar" aria-hidden="true"><span></span><span></span></div>
-        <div class="run-foot"><span><span class="p">11</span> pass · <span class="f">1</span> fail</span><a href="#cs-02">Full session in CS-02 →</a></div>
+        <div class="run-foot"><span><span class="p">11</span> pass · <span class="f">1</span> fail</span><a href="#cs-01">Full session in CS-01 →</a></div>
       </div>
     </div>
   </div>
@@ -444,53 +449,53 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
       <div class="sec-head">
         <p class="label">Featured work</p>
         <div>
-          <h2>Evidence before claims</h2>
-          <p>Open a case to see the risk, scope, result and evidence. Internal names are generalized and account details are blurred.</p>
+          <h2>Manual QC, backed by evidence</h2>
+          <p>Start with a real test session, then review a bug investigation and the tool that supports my work. Open any case for scope, results and evidence.</p>
         </div>
       </div>
 
       <div class="case-cards">
-        <article class="case-card">
-          <span class="case-id">CS-01 · QA tooling</span>
-          <h3>Auto Tracking Test dashboard</h3>
-          <p>Compares live logcat events with the tracking sheet, so wrong and missing values show up during testing.</p>
-          <div class="tri">
-            <div><b>323</b><small>Spec rows</small></div>
-            <div><b>10</b><small>Reached</small></div>
-            <div class="f"><b>2</b><small>Fail</small></div>
-          </div>
-          <div class="card-links"><a href="#cs-01">View evidence →</a><a href="tracking-demo/index.html">Public demo →</a></div>
-        </article>
-        <article class="case-card">
-          <span class="case-id">CS-02 · AI-assisted testing</span>
+        <article class="case-card primary-case">
+          <span class="case-id">CS-01 · AI-assisted testing</span>
           <h3>AI-assisted mobile testing</h3>
-          <p>Native ad pooling across onboarding. The agent drove the device with my test skills; I set the scope and reviewed the results.</p>
+          <p>Native ad pooling across onboarding. The agent drove repeated steps; I owned the scope, risks and final results.</p>
           <div class="tri">
             <div><b>12</b><small>Cases</small></div>
             <div class="p"><b>11</b><small>Pass</small></div>
             <div class="f"><b>1</b><small>Fail</small></div>
           </div>
-          <div class="card-links"><a href="#cs-02">View evidence →</a></div>
+          <div class="card-links"><a href="#cs-01">View test session →</a></div>
         </article>
         <article class="case-card">
-          <span class="case-id">CS-03 · Bug investigation</span>
+          <span class="case-id">CS-02 · Bug investigation</span>
           <h3>Coins lost after account deletion</h3>
           <p>A data integrity defect: device-bound earned coins disappear when an account is deleted.</p>
           <div class="tri">
             <div><b>100%</b><small>Reproduce</small></div>
             <div class="f"><b>61 → 0</b><small>Balance</small></div>
-            <div><b>6</b><small>Suggested tests</small></div>
+            <div><b>6</b><small>Next tests</small></div>
           </div>
-          <div class="card-links"><a href="#cs-03">View bug report →</a></div>
+          <div class="card-links"><a href="#cs-02">View bug report →</a></div>
+        </article>
+        <article class="case-card">
+          <span class="case-id">CS-03 · QA tooling</span>
+          <h3>Auto Tracking Test dashboard</h3>
+          <p>Compares live logcat events with the tracking sheet, so wrong and missing values show during testing.</p>
+          <div class="tri">
+            <div><b>323</b><small>Spec rows</small></div>
+            <div><b>10</b><small>Reached</small></div>
+            <div class="f"><b>2</b><small>Fail</small></div>
+          </div>
+          <div class="card-links"><a href="#cs-03">View evidence →</a><a href="tracking-demo/index.html">Public demo →</a></div>
         </article>
       </div>
 
       <div class="features">
-        <!-- CS-01 -->
-        <details class="feature" id="cs-01">
+        <!-- CS-03 -->
+        <details class="feature" id="cs-03">
           <summary class="feature-head">
             <div>
-              <span class="case-id">CS-01 · QA tooling</span>
+              <span class="case-id">CS-03 · QA tooling</span>
               <h3>Auto Tracking Test dashboard</h3>
               <p class="org-line">Internal tool · AI Xtech</p>
             </div>
@@ -567,11 +572,11 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
           </div>
         </details>
 
-        <!-- CS-02 -->
-        <details class="feature" id="cs-02">
+        <!-- CS-01 -->
+        <details class="feature" id="cs-01">
           <summary class="feature-head">
             <div>
-              <span class="case-id">CS-02 · AI-assisted testing</span>
+              <span class="case-id">CS-01 · AI-assisted testing</span>
               <h3>AI-assisted mobile testing</h3>
               <p class="org-line">Test skills and reporting workflows · AI Xtech</p>
             </div>
@@ -703,11 +708,11 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
           </div>
         </details>
 
-        <!-- CS-03 -->
-        <details class="feature" id="cs-03">
+        <!-- CS-02 -->
+        <details class="feature" id="cs-02">
           <summary class="feature-head">
             <div>
-              <span class="case-id">CS-03 · Bug investigation</span>
+              <span class="case-id">CS-02 · Bug investigation</span>
               <h3>Coins lost after account deletion</h3>
               <p class="org-line">IAP data integrity · real defect I found and reported · Android v1.1.2</p>
             </div>
@@ -908,9 +913,9 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
         <table>
           <thead><tr><th>Area</th><th>What I do</th><th>Evidence</th></tr></thead>
           <tbody>
-            <tr><td>Test design &amp; risk analysis</td><td>Requirement analysis, risk-based testing, edge cases, regression scope</td><td><a href="#cs-02">CS-02 · 12-case session</a></td></tr>
-            <tr><td>Mobile &amp; functional QA</td><td>Android and iOS, UI, state transitions, ads, in-app purchases, multi-device</td><td><a href="#cs-03">CS-03 · bug + recording</a></td></tr>
-            <tr><td>Debugging &amp; analytics</td><td>ADB, logcat, Unity Console, Firebase, AppsFlyer, event validation</td><td><a href="#cs-01">CS-01 · tracking dashboard</a></td></tr>
+            <tr><td>Test design &amp; risk analysis</td><td>Requirement analysis, risk-based testing, edge cases, regression scope</td><td><a href="#cs-01">CS-01 · 12-case session</a></td></tr>
+            <tr><td>Mobile &amp; functional QA</td><td>Android and iOS, UI, state transitions, ads, in-app purchases, multi-device</td><td><a href="#cs-02">CS-02 · bug + recording</a></td></tr>
+            <tr><td>Debugging &amp; analytics</td><td>ADB, logcat, Unity Console, Firebase, AppsFlyer, event validation</td><td><a href="#cs-03">CS-03 · tracking dashboard</a></td></tr>
             <tr><td>QA tooling &amp; AI-assisted testing</td><td>Python and ADB tooling, agent workflows, result review, reporting</td><td><a href="tracking-demo/index.html">Demo · validator + 20 tests</a></td></tr>
           </tbody>
         </table>
