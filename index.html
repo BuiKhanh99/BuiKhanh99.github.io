@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Bui Pham Ngoc Khanh, Quality Control Engineer. Mobile apps, games and AI-assisted testing. ISTQB CTFL 4.0.">
-<title>Bui Pham Ngoc Khanh</title>
+<meta name="description" content="Bui Pham Ngoc Khanh, QA Engineer. Manual mobile testing supported by AI, real-device evidence and human-reviewed results. ISTQB CTFL 4.0.">
+<title>BPNK QC Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -99,7 +99,7 @@ code { font-family: var(--f-mono); font-size: .86em; background: var(--code-bg);
 .role::before { content: "> "; color: var(--muted); }
 .tagline { margin-top: 26px; font-family: var(--f-display); font-stretch: 110%; font-size: var(--s-xl); font-weight: 700; line-height: 1.15; max-width: 22ch; }
 .hl { background: linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 92%, transparent 92%); padding: 0 .06em; }
-.lede { margin-top: 18px; font-size: var(--s-md); line-height: 1.65; color: var(--muted); max-width: 56ch; }
+.lede { margin-top: 18px; font-size: var(--s-lg); line-height: 1.5; color: var(--muted); max-width: 42ch; }
 .cta { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 6px; font: 600 var(--s-sm)/1 var(--f-body); text-decoration: none; cursor: pointer; border: 1px solid transparent; }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
@@ -146,10 +146,35 @@ section { padding-block: 72px; border-bottom: 1px solid var(--line); }
 .sec-head h2 { font-size: var(--s-xl); font-weight: 800; font-stretch: 115%; letter-spacing: -.01em; }
 .sec-head p { margin-top: 12px; color: var(--muted); max-width: 62ch; }
 
+/* case summary cards */
+.case-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+.case-card { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.case-card h3 { font-size: var(--s-lg); font-weight: 800; font-stretch: 110%; }
+.case-card p { font-size: var(--s-sm); color: var(--muted); }
+.tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: auto; padding-top: 6px; }
+.tri > div { min-width: 0; padding: 10px 4px; text-align: center; background: var(--code-bg); border-radius: 6px; }
+.tri b { display: block; font-family: var(--f-display); font-stretch: 110%; font-weight: 800; font-size: 1.125rem; line-height: 1.15; }
+.tri small { display: block; margin-top: 3px; font-family: var(--f-mono); font-size: .66rem; line-height: 1.25; color: var(--muted); }
+.tri .p b { color: var(--pass); }
+.tri .f b { color: var(--fail); }
+.card-links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--f-mono); font-size: var(--s-xs); font-weight: 600; }
+.card-links a { text-decoration: none; }
+.card-links a:hover { text-decoration: underline; }
+
 /* featured case studies */
-.features { display: grid; gap: 40px; }
+.features { display: grid; gap: 14px; }
 .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); scroll-margin-top: 16px; }
-.feature-head { display: flex; justify-content: space-between; align-items: end; gap: 16px 24px; flex-wrap: wrap; padding: 22px 26px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.feature-head { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding: 20px 26px; background: var(--paper); cursor: pointer; list-style: none; }
+.feature-head::-webkit-details-marker { display: none; }
+.feature-head:hover h3 { color: var(--accent); }
+.feature-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.feature[open] > .feature-head { border-bottom: 1px solid var(--line); }
+.toggle { font-family: var(--f-mono); font-size: var(--s-xs); font-weight: 600; color: var(--accent); white-space: nowrap; margin-left: auto; }
+.toggle::after { content: "Open case +"; }
+.feature[open] .toggle::after { content: "Close case −"; }
+.verdict { padding: 18px 26px; border-top: 1px solid var(--line); border-left: 4px solid var(--accent); background: var(--paper); font-size: var(--s-sm); }
+.verdict b { display: block; margin-bottom: 4px; font-family: var(--f-mono); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); }
+.fields dd ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
 .feature-head > div { min-width: 0; }
 .case-id { font-family: var(--f-mono); font-size: var(--s-xs); font-weight: 600; }
 .feature-head h3 { font-size: clamp(1.4rem, 2.4vw, 1.75rem); font-weight: 800; font-stretch: 115%; margin-top: 6px; }
@@ -343,7 +368,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
   .hero { padding-block: 32px 56px; }
   .seal { max-width: 12rem; }
   .sec-head, .timeline > li { grid-template-columns: 1fr; gap: 8px; }
-  .feature-body, .pair, .session-body, .ticket-body, .minis { grid-template-columns: 1fr; }
+  .feature-body, .pair, .session-body, .ticket-body, .minis, .case-cards { grid-template-columns: 1fr; }
   .feature-body > div + div, .pair > div + div, .session-body > div + div, .ticket-body > div + div { border-left: 0; border-top: 1px solid var(--line); }
   .shots ol { grid-template-columns: 1fr; gap: 8px; }
   .stats dl { grid-template-columns: repeat(2, 1fr); }
@@ -360,7 +385,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
   .nav ul { gap: 14px; }
   .run li { grid-template-columns: 3.2rem 1fr auto; gap: 8px; padding: 9px 14px; }
   .stats dl > div { padding: 20px 14px; }
-  .feature-head, .feature-body > div, .block, .pair > div { padding-left: 18px; padding-right: 18px; }
+  .feature-head, .feature-body > div, .block, .pair > div, .verdict { padding-left: 18px; padding-right: 18px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .run li { animation: tick .45s ease both; }
@@ -393,10 +418,10 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
         <p class="label"><span class="badge">ISTQB CTFL 4.0</span><span>Mobile apps · Games · Event tracking · Monetization · QA tooling</span></p>
         <h1>Bui Pham Ngoc Khanh</h1>
         <p class="role">QA Engineer | Mobile QA, Analytics &amp; AI-assisted Testing</p>
-        <p class="tagline">I turn complex app flows into <span class="hl">testable risks</span> and reliable evidence.</p>
-        <p class="lede">QA professional with 3+ years of experience testing mobile apps and games across Android, iOS and PC. Experienced in risk-based test design, event tracking validation, monetization testing, defect investigation and cross-device regression. Currently building AI-assisted QA workflows and internal tools to improve test execution and reporting.</p>
+        <p class="tagline">Manual testing, made <span class="hl">sharper</span> with AI.</p>
+        <p class="lede">I test Android and iOS apps by risk, collect evidence from real devices, and use AI tools to reduce repeated work. Every result still gets human review.</p>
         <div class="cta">
-          <a class="btn btn-primary" href="#work">Featured work</a>
+          <a class="btn btn-primary" href="#work">View case studies</a>
           <a class="btn btn-ghost" href="#contact">Contact</a>
         </div>
       </div>
@@ -435,27 +460,69 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
       <div class="sec-head">
         <p class="label">Featured work</p>
         <div>
-          <h2>Three case studies, with the evidence behind them</h2>
-          <p>Each one states the problem, what I did, what the evidence shows and where it stops. Identifiers such as ad unit and config names are generalized; account details in recordings are blurred.</p>
+          <h2>Evidence before claims</h2>
+          <p>Each case shows the risk, the tested scope, the observed result and the evidence. Open a case for the full details. Identifiers such as ad unit and config names are generalized; account details in recordings are blurred.</p>
         </div>
+      </div>
+
+      <div class="case-cards">
+        <article class="case-card">
+          <span class="case-id">CS-01 · QA tooling</span>
+          <h3>Auto Tracking Test dashboard</h3>
+          <p>Compares live logcat events with the tracking sheet, so wrong and missing values show up during testing.</p>
+          <div class="tri">
+            <div><b>323</b><small>Spec rows</small></div>
+            <div><b>10</b><small>Reached</small></div>
+            <div class="f"><b>2</b><small>Fail</small></div>
+          </div>
+          <div class="card-links"><a href="#cs-01">View evidence →</a><a href="tracking-demo/index.html">Public demo →</a></div>
+        </article>
+        <article class="case-card">
+          <span class="case-id">CS-02 · AI-assisted testing</span>
+          <h3>AI-assisted mobile testing</h3>
+          <p>Native ad pooling across onboarding. The agent drove the device with my test skills; I set the scope and reviewed the results.</p>
+          <div class="tri">
+            <div><b>12</b><small>Cases</small></div>
+            <div class="p"><b>11</b><small>Pass</small></div>
+            <div class="f"><b>1</b><small>Fail</small></div>
+          </div>
+          <div class="card-links"><a href="#cs-02">View evidence →</a></div>
+        </article>
+        <article class="case-card">
+          <span class="case-id">CS-03 · Bug investigation</span>
+          <h3>Coins lost after account deletion</h3>
+          <p>A data integrity defect: device-bound earned coins disappear when an account is deleted.</p>
+          <div class="tri">
+            <div><b>100%</b><small>Reproduce</small></div>
+            <div class="f"><b>61 → 0</b><small>Balance</small></div>
+            <div><b>6</b><small>Suggested tests</small></div>
+          </div>
+          <div class="card-links"><a href="#cs-03">View bug report →</a></div>
+        </article>
       </div>
 
       <div class="features">
         <!-- CS-01 -->
-        <article class="feature" id="cs-01">
-          <div class="feature-head">
+        <details class="feature" id="cs-01">
+          <summary class="feature-head">
             <div>
               <span class="case-id">CS-01 · QA tooling</span>
               <h3>Auto Tracking Test dashboard</h3>
               <p class="org-line">Internal tool · AI Xtech</p>
             </div>
             <div class="tags"><span class="tag">Python</span><span class="tag">ADB</span><span class="tag">logcat</span><span class="tag">Lark</span><span class="tag">macOS</span></div>
-          </div>
+            <span class="toggle" aria-hidden="true"></span>
+          </summary>
           <div class="feature-body">
             <div>
               <dl class="fields">
-                <div><dt>Problem</dt><dd>Manual validation across large tracking specifications is time-consuming and makes parameter mismatches difficult to identify during test execution.</dd></div>
-                <div><dt>My contribution</dt><dd>Built an internal dashboard that streams device logs through ADB, parses tracking events and compares event names and parameters against the tracking specification. The dashboard displays row-level validation results alongside a live device mirror.</dd></div>
+                <div><dt>Problem</dt><dd>Large tracking sheets take time to check, and raw logs hide small value errors, so parameter mismatches are easy to miss during testing.</dd></div>
+                <div><dt>My responsibility</dt><dd><ul>
+                  <li>Built the internal dashboard with Python and ADB.</li>
+                  <li>Parsed tracking events from device logs.</li>
+                  <li>Matched event names and parameters with spec rows.</li>
+                  <li>Showed row results next to a live device mirror.</li>
+                </ul></dd></div>
               </dl>
             </div>
             <div>
@@ -498,6 +565,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
             </div></div>
             <p class="caption">Observed mismatch: <code>app_open_from</code> was reported with <code>open_from=default</code>, which is not an allowed value in the spec, so both rows that use it fail. The interface is in Vietnamese for the team; the device ID is hidden.</p>
           </div>
+          <div class="verdict"><b>QC assessment</b><p>The tool speeds up evidence matching. It does not replace test design or final review.</p></div>
           <div class="pair">
             <div>
               <h4>QA analysis</h4>
@@ -513,23 +581,29 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               </ul>
             </div>
           </div>
-        </article>
+        </details>
 
         <!-- CS-02 -->
-        <article class="feature" id="cs-02">
-          <div class="feature-head">
+        <details class="feature" id="cs-02">
+          <summary class="feature-head">
             <div>
               <span class="case-id">CS-02 · AI-assisted testing</span>
               <h3>AI-assisted mobile testing</h3>
               <p class="org-line">Test skills and reporting workflows · AI Xtech</p>
             </div>
             <div class="tags"><span class="tag">AI agents</span><span class="tag">Claude Code</span><span class="tag">ADB</span><span class="tag">logcat</span></div>
-          </div>
+            <span class="toggle" aria-hidden="true"></span>
+          </summary>
           <div class="feature-body">
             <div>
               <dl class="fields">
-                <div><dt>Problem</dt><dd>Repetitive mobile checks across app builds consume QA time that could otherwise be spent on exploratory testing and high-risk edge cases.</dd></div>
-                <div><dt>My contribution</dt><dd>Developed reusable test skills and reporting workflows for device execution, tracking validation, ad placement checks and UI verification. I provide the test scope and expected behavior, review the agent's observations and verify generated results.</dd></div>
+                <div><dt>Problem</dt><dd>Repeated mobile checks across builds use time that should go to exploratory testing and high-risk edge cases.</dd></div>
+                <div><dt>My responsibility</dt><dd><ul>
+                  <li>Wrote the test skills the agent uses, including the bug report template and tracking checks.</li>
+                  <li>Give the agent the scope, the task and the expected behavior.</li>
+                  <li>Answer its open questions when the run ends.</li>
+                  <li>Review the results before accepting them.</li>
+                </ul></dd></div>
               </dl>
               <div class="status-list">
                 <span class="label">Working today, used in real test sessions</span>
@@ -550,7 +624,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
                   <li><span class="dot">2</span><span><b>Agent execution</b><small>The agent drives a real Android device over ADB with my test skills</small></span></li>
                   <li><span class="dot">3</span><span><b>Evidence collection</b><small>Screenshots, UI dumps and logcat events with timestamps</small></span></li>
                   <li><span class="dot">4</span><span><b>Assertions</b><small>Observed behavior and log events compared with the expected result</small></span></li>
-                  <li><span class="dot">5</span><span><b>Human review</b><small>I answer the agent's open questions and verify every result before it is accepted</small></span></li>
+                  <li><span class="dot">5</span><span><b>Human review</b><small>I answer the agent's open questions and review the results before accepting them</small></span></li>
                 </ol>
               </figure>
             </div>
@@ -593,7 +667,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               <div>
                 <h4>How it was tested</h4>
                 <ul class="method">
-                  <li>Remote Config set per case by writing the onboarding config into the debug build's config cache, then restored to the real values afterwards.</li>
+                  <li>Cases 1–9 ran on the app's default config. Cases 10–12 changed Remote Config by writing the onboarding config into the debug build's config cache, and the real values were restored after testing.</li>
                   <li>"No ad" simulated by pointing the native request at a banner test unit so it fails with a format mismatch. A 1 ms timeout was tried first and did not work.</li>
                   <li>Every test ad looks the same, so ad swaps and reuse were checked from <code>onAdImpression</code> logs: unit and timestamp.</li>
                   <li>Compared with the previous build 1.0.2 on the same device to separate new defects from existing behavior.</li>
@@ -629,6 +703,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               </ol>
             </figure>
           </div>
+          <div class="verdict"><b>QC assessment</b><p>Fix before swipe lock is enabled. A locked swipe must not create an ad click.</p></div>
           <div class="pair">
             <div>
               <h4>QA analysis</h4>
@@ -642,23 +717,30 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               </ul>
             </div>
           </div>
-        </article>
+        </details>
 
         <!-- CS-03 -->
-        <article class="feature" id="cs-03">
-          <div class="feature-head">
+        <details class="feature" id="cs-03">
+          <summary class="feature-head">
             <div>
               <span class="case-id">CS-03 · Bug investigation</span>
-              <h3>IAP data integrity: coins lost on account deletion</h3>
-              <p class="org-line">Real defect I found and reported · Android v1.1.2</p>
+              <h3>Coins lost after account deletion</h3>
+              <p class="org-line">IAP data integrity · real defect I found and reported · Android v1.1.2</p>
             </div>
             <div class="tags"><span class="tag">IAP</span><span class="tag">State</span><span class="tag">Remote Config</span><span class="tag">Data integrity</span></div>
-          </div>
+            <span class="toggle" aria-hidden="true"></span>
+          </summary>
           <div class="feature-body">
             <div>
               <dl class="fields">
                 <div><dt>Risk</dt><dd>Deleting an account may unintentionally remove device-bound earned currency, causing user progress or balances to be lost.</dd></div>
                 <div><dt>Test condition</dt><dd>Restore config = false.</dd></div>
+                <div><dt>My responsibility</dt><dd><ul>
+                  <li>Found and reported the defect.</li>
+                  <li>Wrote the steps, expected and actual results.</li>
+                  <li>Recorded the screen evidence.</li>
+                  <li>Listed the regression scope for the fix.</li>
+                </ul></dd></div>
               </dl>
             </div>
             <div>
@@ -744,6 +826,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               </div>
             </article>
           </div>
+          <div class="verdict"><b>QC assessment</b><p>Users who delete an account lose coins they earned. Fix it, then run the regression cases below before closing the bug.</p></div>
           <div class="block">
             <div class="ev-head">
               <div>
@@ -766,7 +849,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               </table>
             </div>
           </div>
-        </article>
+        </details>
       </div>
     </div>
   </section>
@@ -819,11 +902,11 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
         </div>
       </div>
       <ol class="steps">
-        <li><span class="n">01</span><h3>Understand requirements and risks</h3><p>Identify ambiguous requirements, critical user journeys, monetization risks, data integrity issues and dependencies.</p></li>
-        <li><span class="n">02</span><h3>Design tests by risk</h3><p>Cover positive, negative, boundary, state-transition, interruption and recovery scenarios based on feature behavior.</p></li>
-        <li><span class="n">03</span><h3>Execute and collect evidence</h3><p>Validate UI, functional flows, tracking and monetization on relevant devices; capture logs, screenshots and reproducible steps.</p></li>
-        <li><span class="n">04</span><h3>Investigate and communicate defects</h3><p>Establish actual versus expected behavior, reproduction rate, impact, relevant evidence and regression scope.</p></li>
-        <li><span class="n">05</span><h3>Assess release risk</h3><p>Provide a QA assessment and release-risk findings: verified scope, unresolved defects, untested areas and residual risks.</p></li>
+        <li><span class="n">01</span><h3>Read the risks</h3><p>Find unclear rules, key journeys, money risks and data risks.</p></li>
+        <li><span class="n">02</span><h3>Plan the tests</h3><p>Cover happy paths, errors, limits, state changes, interruptions and recovery.</p></li>
+        <li><span class="n">03</span><h3>Run and record</h3><p>Test on real devices. Keep logs, screenshots and clear steps.</p></li>
+        <li><span class="n">04</span><h3>Check the defects</h3><p>Compare expected and actual results. Confirm the impact, the reproduction rate and the regression scope.</p></li>
+        <li><span class="n">05</span><h3>Give a QC assessment</h3><p>Report the tested scope, open defects, gaps and release risk, so the team can decide.</p></li>
       </ol>
     </div>
   </section>
@@ -842,12 +925,12 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
             <p class="org"><a href="https://xtech.ai.vn/" target="_blank" rel="noopener">AI Xtech</a> · Global mobile apps with millions of active users</p>
             <p class="org">AI apps I test: <a href="https://play.google.com/store/apps/details?id=com.ai.photo.editor.collage.retouch" target="_blank" rel="noopener">Snaptou: AI Photo Editor</a> · <a href="https://play.google.com/store/apps/details?id=com.room.ai.planner.design" target="_blank" rel="noopener">NestAI: AI Home, Room Planner</a></p>
             <ul>
-              <li>Analyze requirements and design risk-based test scenarios for mobile application features, including tracking, ads, subscriptions and in-app purchases.</li>
-              <li>Validate event names, parameters and trigger conditions against tracking specifications using device logs and analytics tools.</li>
-              <li>Investigate functional and integration defects using reproducible steps, expected-versus-actual results, device evidence and relevant logs.</li>
-              <li>Develop internal QA tooling to support real-time tracking validation and reduce manual log inspection.</li>
-              <li>Create reusable AI-assisted test workflows for device execution, evidence collection and structured bug reporting; review agent-generated results before accepting findings.</li>
-              <li>Participate in requirement reviews, defect verification and regression testing, communicating unresolved issues and test coverage limitations to the team.</li>
+              <li>Review requirements and design risk-based scenarios for tracking, ads, subscriptions and in-app purchases.</li>
+              <li>Validate event names, parameters and triggers against tracking specs using device logs.</li>
+              <li>Investigate defects using clear steps, expected and actual results, logs and device evidence.</li>
+              <li>Build internal QA tools that reduce manual log checking.</li>
+              <li>Write AI test skills for device runs, evidence collection and bug reports, and review the results before accepting them.</li>
+              <li>Join requirement reviews, verify fixes, run regression, and report open issues and coverage gaps.</li>
             </ul>
           </div>
         </li>
@@ -971,6 +1054,18 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
 </footer>
 
 <script>
+function openCase(hash, scroll) {
+  if (!/^#cs-0[1-3]$/.test(hash)) return;
+  var el = document.querySelector(hash);
+  if (!el) return;
+  el.open = true;
+  if (scroll) el.scrollIntoView();
+}
+document.querySelectorAll('a[href^="#cs-"]').forEach(function (a) {
+  a.addEventListener('click', function () { openCase(a.getAttribute('href'), false); });
+});
+window.addEventListener('hashchange', function () { openCase(location.hash, true); });
+openCase(location.hash, true);
 document.querySelectorAll('.copy').forEach(function (btn) {
   btn.addEventListener('click', function () {
     var el = document.getElementById(btn.dataset.target);
