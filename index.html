@@ -39,7 +39,7 @@
   --s-md: 1.0625rem;
   --s-lg: 1.3125rem;
   --s-xl: clamp(1.6rem, 3vw, 2.1rem);
-  --s-hero: clamp(2.3rem, 6.4vw, 4.6rem);
+  --s-hero: clamp(2.2rem, 5vw, 3.6rem);
   --wrap: 70rem;
 }
 @media (prefers-color-scheme: dark) {
@@ -89,7 +89,7 @@ code { font-family: var(--f-mono); font-size: .86em; background: var(--code-bg);
 .nav a { color: var(--muted); text-decoration: none; font-size: var(--s-sm); }
 .nav a:hover { color: var(--ink); }
 
-.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; padding-block: 56px 80px; }
+.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; padding-block: 32px 52px; }
 .hero > * { min-width: 0; }
 .hero .label { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); letter-spacing: .06em; }
@@ -133,14 +133,14 @@ code { font-family: var(--f-mono); font-size: .86em; background: var(--code-bg);
 /* stats strip */
 .stats { border-bottom: 1px solid var(--line); background: var(--surface); }
 .stats dl { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; }
-.stats dl > div { min-width: 0; padding: 26px 24px; border-left: 1px solid var(--line); }
+.stats dl > div { min-width: 0; padding: 18px 24px; border-left: 1px solid var(--line); }
 .stats dl > div:first-child { border-left: 0; padding-left: 0; }
 .stats dt { font-family: var(--f-display); font-stretch: 125%; font-weight: 800; font-size: clamp(1.9rem, 3.6vw, 2.6rem); line-height: 1; font-variant-numeric: tabular-nums; }
 .stats dd { margin: 10px 0 0; font-size: var(--s-sm); color: var(--muted); }
 
 /* sections */
-section { padding-block: 72px; border-bottom: 1px solid var(--line); }
-.sec-head { display: grid; grid-template-columns: 13rem 1fr; gap: 32px; margin-bottom: 40px; }
+section { padding-block: 48px; border-bottom: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: 13rem 1fr; gap: 32px; margin-bottom: 26px; }
 .sec-head > * { min-width: 0; }
 .sec-head .label { padding-top: 8px; }
 .sec-head h2 { font-size: var(--s-xl); font-weight: 800; font-stretch: 115%; letter-spacing: -.01em; }
@@ -163,6 +163,8 @@ section { padding-block: 72px; border-bottom: 1px solid var(--line); }
 
 /* featured case studies */
 .features { display: grid; gap: 14px; }
+.js .feature:not([open]) { display: none; }
+.case-card.active { box-shadow: var(--shadow); border-color: var(--accent); }
 .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); scroll-margin-top: 16px; }
 .feature-head { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding: 20px 26px; background: var(--paper); cursor: pointer; list-style: none; }
 .feature-head::-webkit-details-marker { display: none; }
@@ -272,8 +274,6 @@ section { padding-block: 72px; border-bottom: 1px solid var(--line); }
 .ticket-body > div + div { border-left: 1px solid var(--line); }
 .ticket ol, .ticket ul { margin: 0 0 18px; padding-left: 1.2em; font-size: var(--s-sm); }
 .ticket ol li + li, .ticket ul li + li { margin-top: 4px; }
-.ticket .act h4 { color: var(--fail); }
-.ticket .exp h4 { color: var(--pass); }
 .env { font-size: var(--s-sm); display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 0 0 18px; }
 .env dt { color: var(--muted); }
 .env dd { margin: 0; }
@@ -295,15 +295,8 @@ section { padding-block: 72px; border-bottom: 1px solid var(--line); }
 .regress td:first-child { font-family: var(--f-mono); font-size: .78rem; color: var(--muted); width: 2.5rem; }
 .regress td:last-child { width: 7rem; }
 
-/* other work */
-.minis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.mini { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 8px; align-content: start; }
-.mini-top { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; }
-.mini h3 { font-size: var(--s-lg); font-weight: 750; font-stretch: 110%; }
-.mini p { font-size: var(--s-sm); color: var(--muted); }
-
 /* process */
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
 .steps li { min-width: 0; border-top: 3px solid var(--ink); padding-top: 16px; }
 .steps .n { font-family: var(--f-mono); font-size: var(--s-xs); color: var(--accent); font-weight: 600; }
 .steps h3 { font-size: 1.125rem; font-weight: 750; font-stretch: 110%; margin: 6px 0 8px; }
@@ -311,7 +304,7 @@ section { padding-block: 72px; border-bottom: 1px solid var(--line); }
 
 /* timeline */
 .timeline { list-style: none; margin: 0; padding: 0; display: grid; }
-.timeline > li { display: grid; grid-template-columns: 13rem 1fr; gap: 32px; padding-block: 24px; border-bottom: 1px solid var(--line); }
+.timeline > li { display: grid; grid-template-columns: 13rem 1fr; gap: 32px; padding-block: 16px; border-bottom: 1px solid var(--line); }
 .timeline > li > * { min-width: 0; }
 .timeline > li:first-child { padding-top: 0; }
 .timeline > li:last-child { border-bottom: 0; }
@@ -325,33 +318,27 @@ section { padding-block: 72px; border-bottom: 1px solid var(--line); }
 /* skills and certification */
 .skills-table { overflow-x: auto; }
 .skills-table table { border-collapse: collapse; width: 100%; min-width: 40rem; font-size: var(--s-sm); }
-.skills-table th, .skills-table td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.skills-table th, .skills-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .skills-table th { font-family: var(--f-mono); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .skills-table td:first-child { font-weight: 600; width: 14rem; }
 .skills-table td:last-child { width: 15rem; }
 .skills-table td:last-child a { display: block; font-family: var(--f-mono); font-size: .78rem; text-decoration: none; }
 .skills-table td:last-child a:hover { text-decoration: underline; }
 .also { margin-top: 16px; font-size: var(--s-sm); color: var(--muted); }
-.cert { margin-top: 48px; display: grid; grid-template-columns: minmax(0, 13rem) 1fr; gap: 40px; align-items: center; }
-.cert > * { min-width: 0; }
-.seal { width: 100%; max-width: 13rem; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; text-align: center; background: var(--surface); border: 2px solid var(--ink); outline: 1px dashed var(--line); outline-offset: -12px; box-shadow: var(--shadow); }
-.seal > div { display: grid; justify-items: center; gap: 6px; padding: 20px; }
-.seal strong { font-family: var(--f-display); font-stretch: 125%; font-weight: 850; font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1; letter-spacing: -.02em; }
-.seal .label { font-size: .64rem; }
-.cert h3 { font-size: var(--s-lg); font-weight: 800; font-stretch: 115%; }
-.cert .issuer { margin-top: 6px; color: var(--muted); font-size: var(--s-sm); }
-.cert-meta { margin: 18px 0 0; display: grid; grid-template-columns: 1fr 1fr 1.6fr; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.cert-meta > div { min-width: 0; padding: 12px 16px; }
-.cert-meta > div + div { border-left: 1px solid var(--line); }
-.cert-meta dd { margin: 4px 0 0; font-family: var(--f-mono); font-size: var(--s-sm); font-weight: 600; overflow-wrap: anywhere; }
-.edu { margin-top: 14px; font-size: var(--s-sm); color: var(--muted); }
+.cert { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.cert > div { min-width: 0; }
+.cert h3 { font-size: 1.125rem; font-weight: 800; font-stretch: 110%; }
+.cert p { margin-top: 4px; font-family: var(--f-mono); font-size: var(--s-xs); color: var(--muted); overflow-wrap: anywhere; }
+.edu { margin-top: 10px; font-size: var(--s-sm); color: var(--muted); }
 
 /* contact */
-.contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+.contact { display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px; align-items: center; }
 .contact > * { min-width: 0; }
-.contact h2 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 850; font-stretch: 125%; letter-spacing: -.02em; text-transform: uppercase; line-height: 1; }
+.contact h2 { font-size: clamp(1.6rem, 3.4vw, 2.5rem); font-weight: 850; font-stretch: 125%; letter-spacing: -.02em; text-transform: uppercase; line-height: 1; }
 .contact .label { margin-bottom: 16px; }
-.contact-list { display: grid; gap: 10px; }
+.contact-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.contact-list .row:first-child { grid-column: 1 / -1; }
+.place { margin-top: 10px; font-size: var(--s-sm); color: var(--muted); }
 .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
 .row > div { min-width: 0; }
 .row .v { font-size: var(--s-sm); overflow-wrap: anywhere; margin-top: 2px; }
@@ -364,9 +351,8 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
   .steps { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 900px) {
-  .hero, .contact, .cert { grid-template-columns: 1fr; gap: 36px; }
+  .hero, .contact { grid-template-columns: 1fr; gap: 28px; }
   .hero { padding-block: 32px 56px; }
-  .seal { max-width: 12rem; }
   .sec-head, .timeline > li { grid-template-columns: 1fr; gap: 8px; }
   .feature-body, .pair, .session-body, .ticket-body, .minis, .case-cards { grid-template-columns: 1fr; }
   .feature-body > div + div, .pair > div + div, .session-body > div + div, .ticket-body > div + div { border-left: 0; border-top: 1px solid var(--line); }
@@ -374,12 +360,11 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
   .stats dl { grid-template-columns: repeat(2, 1fr); }
   .stats dl > div:nth-child(3) { border-left: 0; padding-left: 0; }
   .stats dl > div:nth-child(n+3) { border-top: 1px solid var(--line); }
-  section { padding-block: 52px; }
+  section { padding-block: 40px; }
 }
 @media (max-width: 560px) {
   .steps { grid-template-columns: 1fr; }
-  .cert-meta { grid-template-columns: 1fr; }
-  .cert-meta > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .contact-list { grid-template-columns: 1fr; }
   .evidence { grid-template-columns: 1fr; }
   .evidence video { max-width: 15rem; }
   .nav ul { gap: 14px; }
@@ -399,6 +384,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
 
 <header class="top">
   <div class="wrap">
@@ -428,13 +414,11 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
 
       <div class="run" role="figure" aria-label="Results from one documented test session: onboarding ads, debug build 1.0.3, 12 cases, 11 pass, 1 fail">
         <div class="run-head"><span><b>Documented session</b> · onboarding ads</span><span>debug build 1.0.3</span></div>
-        <p class="run-sub">1 Android device · 12 cases · 5 shown</p>
+        <p class="run-sub">1 Android device · 12 cases · 3 shown</p>
         <ol>
-          <li><span class="id">Case 01</span><span class="name">Language screen: ad shows, Next stays disabled until a language is picked</span><span class="pill pass">PASS</span></li>
           <li><span class="id">Case 04</span><span class="name">Paging: no grey frame, one impression per page</span><span class="pill pass">PASS</span></li>
           <li><span class="id">Case 06</span><span class="name">Network lost during onboarding</span><span class="pill pass">PASS</span></li>
           <li><span class="id">Case 10</span><span class="name">Swipe lock on: swiping must not trigger anything</span><span class="pill fail">FAIL</span></li>
-          <li><span class="id">Case 12</span><span class="name">Ad pooling off: previous behavior unchanged</span><span class="pill pass">PASS</span></li>
         </ol>
         <div class="bar" aria-hidden="true"><span></span><span></span></div>
         <div class="run-foot"><span><span class="p">11</span> pass · <span class="f">1</span> fail</span><a href="#cs-02">Full session in CS-02 →</a></div>
@@ -461,7 +445,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
         <p class="label">Featured work</p>
         <div>
           <h2>Evidence before claims</h2>
-          <p>Each case shows the risk, the tested scope, the observed result and the evidence. Open a case for the full details. Identifiers such as ad unit and config names are generalized; account details in recordings are blurred.</p>
+          <p>Open a case to see the risk, scope, result and evidence. Internal names are generalized and account details are blurred.</p>
         </div>
       </div>
 
@@ -569,7 +553,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
           <div class="pair">
             <div>
               <h4>QA analysis</h4>
-              <p>The tool makes discrepancies visible during execution, so QA can investigate tracking issues without manually scanning raw logs. The recorded session validates only the rows it reached; it does not establish full-spec coverage.</p>
+              <p>Mismatches become visible during testing, without scanning raw logs. One session covers only the rows it reached, not the full spec.</p>
             </div>
             <div class="limits">
               <h4>Limitations</h4>
@@ -775,23 +759,6 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
                     <li>Log in again.</li>
                     <li>Check the coin balance again.</li>
                   </ol>
-                  <div class="act">
-                    <h4>Actual result</h4>
-                    <ul>
-                      <li><code>purchased_coin</code> is deleted.</li>
-                      <li><code>earned_coin</code> is also deleted, even though it is device-bound.</li>
-                      <li>After logging in again, the user receives 1 coin from <code>coin_initial</code>.</li>
-                      <li>The previous <code>earned_coin</code> balance is not kept.</li>
-                    </ul>
-                  </div>
-                  <div class="exp">
-                    <h4>Expected result</h4>
-                    <ul>
-                      <li>The account-bound <code>purchased_coin</code> is deleted.</li>
-                      <li>The device-bound <code>earned_coin</code> is kept.</li>
-                      <li>After logging in again, <code>earned_coin</code> is still intact.</li>
-                    </ul>
-                  </div>
                 </div>
                 <div>
                   <h4>Expected vs. actual (Restore = false)</h4>
@@ -854,51 +821,13 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
     </div>
   </section>
 
-  <section id="other-work">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="label">Other work</p>
-        <div>
-          <h2>Earlier projects, in brief</h2>
-          <p>Mobile game QA before AI Xtech. Details are available on request.</p>
-        </div>
-      </div>
-      <div class="minis">
-        <article class="mini">
-          <div class="mini-top"><span class="case-id">Analytics</span><span class="pill neutral">Idle Train Miner · Car Parking Jam 3D</span></div>
-          <h3>Analytics event verification</h3>
-          <p>Checked assigned events per build in Unity Console logs against the spec: event name, parameter values, trigger condition and firing order, for events such as <code>game_start</code>, <code>game_end</code> and the ad lifecycle.</p>
-          <div class="tags"><span class="tag">Unity Console</span><span class="tag">Firebase</span><span class="tag">AppsFlyer</span></div>
-        </article>
-        <article class="mini">
-          <div class="mini-top"><span class="case-id">Monetization</span><span class="pill neutral">Idle Train Miner · Car Parking Jam 3D</span></div>
-          <h3>In-app purchases and ads</h3>
-          <p>Tested purchase flows and their failure paths (network interruption, duplicate payment), plus ad no-fill and no-internet scenarios, and confirmed error handling for each.</p>
-          <div class="tags"><span class="tag">IAP</span><span class="tag">Ads</span><span class="tag">Jira</span></div>
-        </article>
-        <article class="mini">
-          <div class="mini-top"><span class="case-id">Performance</span><span class="pill neutral">Android · iOS</span></div>
-          <h3>Stability, load time and FPS</h3>
-          <p>Checked app stability, load times and FPS across 4+ Android and iOS devices, and reviewed progression systems (EXP gain, rewards) for balance.</p>
-          <div class="tags"><span class="tag">Performance</span><span class="tag">Multi-device</span></div>
-        </article>
-        <article class="mini">
-          <div class="mini-top"><span class="case-id">Live content</span><span class="pill neutral">MapleStory M</span></div>
-          <h3>Seasonal updates for a large MMORPG</h3>
-          <p>Multi-platform testing on PC, Android and iOS across 15+ seasonal releases, working with the Korea QC team on priorities and repro steps, and onboarding new testers.</p>
-          <div class="tags"><span class="tag">PC client</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Confluence</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section id="process">
     <div class="wrap">
       <div class="sec-head">
         <p class="label">QA process</p>
         <div>
           <h2>How I work through a feature</h2>
-          <p>Risk decides what gets tested first and how deeply. Every step leaves evidence someone else can check.</p>
+          <p>Risk decides what gets tested first. Every step leaves evidence someone else can check.</p>
         </div>
       </div>
       <ol class="steps">
@@ -925,12 +854,10 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
             <p class="org"><a href="https://xtech.ai.vn/" target="_blank" rel="noopener">AI Xtech</a> · Global mobile apps with millions of active users</p>
             <p class="org">AI apps I test: <a href="https://play.google.com/store/apps/details?id=com.ai.photo.editor.collage.retouch" target="_blank" rel="noopener">Snaptou: AI Photo Editor</a> · <a href="https://play.google.com/store/apps/details?id=com.room.ai.planner.design" target="_blank" rel="noopener">NestAI: AI Home, Room Planner</a></p>
             <ul>
-              <li>Review requirements and design risk-based scenarios for tracking, ads, subscriptions and in-app purchases.</li>
-              <li>Validate event names, parameters and triggers against tracking specs using device logs.</li>
-              <li>Investigate defects using clear steps, expected and actual results, logs and device evidence.</li>
-              <li>Build internal QA tools that reduce manual log checking.</li>
-              <li>Write AI test skills for device runs, evidence collection and bug reports, and review the results before accepting them.</li>
-              <li>Join requirement reviews, verify fixes, run regression, and report open issues and coverage gaps.</li>
+              <li>Design risk-based tests for tracking, ads, subscriptions and in-app purchases.</li>
+              <li>Validate events against tracking specs and investigate defects with device logs and evidence.</li>
+              <li>Build QA tools and AI test skills that reduce repeated checking.</li>
+              <li>Join requirement reviews, verify fixes, run regression and report coverage gaps.</li>
             </ul>
           </div>
         </li>
@@ -940,10 +867,9 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
             <h3>Game Tester</h3>
             <p class="org">Indiez Global Pte. Ltd. · Idle Train Miner, Car Parking Jam 3D: Move it!</p>
             <ul>
-              <li>Designed and executed test cases for gameplay, analytics, in-app purchases and advertising flows across Android and iOS.</li>
-              <li>Validated analytics events against specifications, including event names, parameter values, trigger conditions and firing order.</li>
-              <li>Tested failure and recovery scenarios such as network interruptions, ad no-fill and purchase-flow edge cases.</li>
-              <li>Investigated, reported and verified defects in collaboration with developers and designers.</li>
+              <li>Tested gameplay, analytics, purchases and ads on Android and iOS, plus stability, load time and FPS on 4+ devices.</li>
+              <li>Validated analytics events in Unity Console: names, values, triggers and firing order.</li>
+              <li>Covered network loss, duplicate payment and ad no-fill; reported and verified defects in Jira.</li>
             </ul>
           </div>
         </li>
@@ -953,10 +879,9 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
             <h3>Game Tester</h3>
             <p class="org">Nexon Networks Vina Co. Ltd · MapleStory M (PC, Android, iOS)</p>
             <ul>
-              <li>Tested UI, core gameplay and seasonal content for MapleStory M across PC, Android and iOS.</li>
-              <li>Designed and executed test scenarios for new features and high-risk gameplay changes across 15+ releases.</li>
-              <li>Coordinated defect reproduction, priority clarification and content verification with the Korea QC team.</li>
-              <li>Supported QA onboarding by preparing testing guides and training three new team members.</li>
+              <li>Tested UI, gameplay and seasonal content across 15+ releases on all three platforms.</li>
+              <li>Worked with the Korea QC team on bug priority and reproduction steps.</li>
+              <li>Trained 3 new testers and wrote testing guides.</li>
             </ul>
           </div>
         </li>
@@ -964,10 +889,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
           <span class="when">May 2023 → Aug 2023</span>
           <div>
             <h3>Trainee Tester</h3>
-            <p class="org">TESTING VN</p>
-            <ul>
-              <li>Analyzed requirements, ran test cases and tracked bugs in Jira on 2 Windows projects.</li>
-            </ul>
+            <p class="org">TESTING VN · requirements, test cases and Jira on 2 Windows projects</p>
           </div>
         </li>
       </ol>
@@ -980,42 +902,29 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
         <p class="label">Skills &amp; certification</p>
         <div>
           <h2>Skills, with where to see them</h2>
-          <p>Each area links to the evidence on this page.</p>
         </div>
       </div>
       <div class="skills-table">
         <table>
           <thead><tr><th>Area</th><th>What I do</th><th>Evidence</th></tr></thead>
           <tbody>
-            <tr><td>Test design &amp; risk analysis</td><td>Requirement analysis, risk-based testing, edge cases, regression scope</td><td><a href="#cs-02">CS-02 · 12-case session</a><a href="#cs-03">CS-03 · regression scope</a><a href="#process">QA process</a></td></tr>
-            <tr><td>Mobile &amp; functional QA</td><td>Android and iOS, UI, state transitions, ads, in-app purchases, multi-device</td><td><a href="#cs-03">CS-03 · bug report + recording</a><a href="#cs-02">CS-02 · ad flow findings</a></td></tr>
-            <tr><td>Debugging &amp; analytics</td><td>ADB, logcat, Unity Console, Firebase, AppsFlyer, event validation</td><td><a href="#cs-01">CS-01 · tracking dashboard</a><a href="#cs-02">CS-02 · log evidence</a></td></tr>
-            <tr><td>QA tooling &amp; AI-assisted testing</td><td>Python and ADB tooling, agent workflows, result review, reporting</td><td><a href="tracking-demo/index.html">Demo · validator + 20 tests</a><a href="#cs-01">CS-01 · architecture</a><a href="#cs-02">CS-02 · workflow + limits</a></td></tr>
+            <tr><td>Test design &amp; risk analysis</td><td>Requirement analysis, risk-based testing, edge cases, regression scope</td><td><a href="#cs-02">CS-02 · 12-case session</a></td></tr>
+            <tr><td>Mobile &amp; functional QA</td><td>Android and iOS, UI, state transitions, ads, in-app purchases, multi-device</td><td><a href="#cs-03">CS-03 · bug + recording</a></td></tr>
+            <tr><td>Debugging &amp; analytics</td><td>ADB, logcat, Unity Console, Firebase, AppsFlyer, event validation</td><td><a href="#cs-01">CS-01 · tracking dashboard</a></td></tr>
+            <tr><td>QA tooling &amp; AI-assisted testing</td><td>Python and ADB tooling, agent workflows, result review, reporting</td><td><a href="tracking-demo/index.html">Demo · validator + 20 tests</a></td></tr>
           </tbody>
         </table>
       </div>
       <p class="also">Also used: Jira, Confluence, ClickUp, Lark, Slack, MS Teams, Figma, Postman (basic API checks). Agile / Scrum with 2-week sprints.</p>
 
       <div class="cert">
-        <div class="seal" role="img" aria-label="ISTQB Certified Tester, Foundation Level, syllabus 4.0: passed">
-          <div>
-            <span class="label">ISTQB® Certified Tester</span>
-            <strong>CTFL</strong>
-            <span class="label">Foundation Level · v4.0</span>
-            <span class="pill pass">PASS</span>
-          </div>
-        </div>
         <div>
           <h3>ISTQB® Certified Tester, Foundation Level 4.0</h3>
-          <p class="issuer">Brightest GmbH, Berlin · officially certified with the authorization of the SSTQB</p>
-          <dl class="cert-meta">
-            <div><dt class="label">Passed</dt><dd>19 Jun 2026</dd></div>
-            <div><dt class="label">Syllabus</dt><dd>Version 4.0</dd></div>
-            <div><dt class="label">Certificate No.</dt><dd>Brightest2026035995</dd></div>
-          </dl>
-          <p class="edu">Also: Fresher Tester Certificate and Jira &amp; Confluence Fundamentals (TESTING VN) · B.Eng. Engineering Physics, Can Tho University · co-authored research paper, Can Tho Journal of Medicine and Pharmacy.</p>
+          <p>Brightest GmbH · passed 19 Jun 2026 · No. Brightest2026035995</p>
         </div>
+        <span class="pill pass">PASS</span>
       </div>
+      <p class="edu">B.Eng. Engineering Physics, Can Tho University · TESTING VN Fresher Tester certificate.</p>
     </div>
   </section>
 
@@ -1025,6 +934,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
         <div>
           <p class="label">Contact</p>
           <h2>Shipping soon? Let's test it.</h2>
+          <p class="place">Ho Chi Minh City, Vietnam</p>
         </div>
         <div class="contact-list">
           <div class="row">
@@ -1036,9 +946,6 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
           </div>
           <div class="row">
             <div><div class="label">GitHub</div><div class="v"><a href="https://github.com/BuiKhanh99" target="_blank" rel="noopener">github.com/BuiKhanh99</a></div></div>
-          </div>
-          <div class="row">
-            <div><div class="label">Location</div><div class="v">Ho Chi Minh City, Vietnam</div></div>
           </div>
         </div>
       </div>
@@ -1054,13 +961,28 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
 </footer>
 
 <script>
+var cases = document.querySelectorAll('details.feature');
+function markCards() {
+  document.querySelectorAll('.case-card').forEach(function (card) {
+    var target = document.querySelector(card.querySelector('a[href^="#cs-"]').getAttribute('href'));
+    card.classList.toggle('active', target.open);
+  });
+}
 function openCase(hash, scroll) {
   if (!/^#cs-0[1-3]$/.test(hash)) return;
   var el = document.querySelector(hash);
   if (!el) return;
-  el.open = true;
+  cases.forEach(function (d) { d.open = d === el; });
+  markCards();
   if (scroll) el.scrollIntoView();
 }
+cases.forEach(function (d) {
+  d.addEventListener('toggle', function () {
+    markCards();
+    var anyOpen = Array.prototype.some.call(cases, function (c) { return c.open; });
+    if (!anyOpen) document.querySelector('.case-cards').scrollIntoView();
+  });
+});
 document.querySelectorAll('a[href^="#cs-"]').forEach(function (a) {
   a.addEventListener('click', function () { openCase(a.getAttribute('href'), false); });
 });
