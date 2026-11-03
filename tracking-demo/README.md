@@ -4,7 +4,7 @@ Validate Android tracking events from logcat against a tracking spec, row by row
 
 **[View the demo report](https://buikhanh99.github.io/tracking-demo/)** · [Back to portfolio](https://buikhanh99.github.io/#cs-01)
 
-> **What this is.** A public demo with fake data for a made-up fitness app. It re-implements the validation idea behind the Auto Tracking Test dashboard I built for work (CS-01 in my portfolio). It is **not** that tool's source code and contains no company data. The internal tool also mirrors the device screen and syncs the spec from Lark; this demo covers only the validation logic.
+> **What this is.** A public demo with fake data for a made-up fitness app. It re-implements the validation idea behind the Tracking area of QC Tools, the internal tool I built for work (CS-01 in my portfolio). It is **not** that tool's source code and contains no company data. QC Tools also runs task checklists on a device, syncs with Lark and mirrors the device screen; this demo covers only the tracking validation logic.
 
 ## Why
 
