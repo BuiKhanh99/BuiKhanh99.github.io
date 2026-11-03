@@ -524,7 +524,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
                 <ol>
                   <li><span class="dot">1</span><span><b>Task</b><small>Description plus Lark and Figma links</small></span></li>
                   <li><span class="dot">2</span><span><b>Checklist</b><small>Test cases drafted, then edited and locked by QA</small></span></li>
-                  <li><span class="dot">3</span><span><b>Device run</b><small>Passed, Failed or Not Testable, with a note and evidence</small></span></li>
+                  <li><span class="dot">3</span><span><b>Device run</b><small>Passed, Failed, Not Testable or Skipped, with a note and evidence</small></span></li>
                   <li><span class="dot">4</span><span><b>Lark</b><small>Dry run first, written only after QA approves, then read back</small></span></li>
                 </ol>
               </figure>
@@ -536,8 +536,7 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               <button class="qtab" type="button" role="tab" id="qt-1" aria-controls="qp-1" aria-selected="false"><b>1</b>Task</button>
               <button class="qtab" type="button" role="tab" id="qt-2" aria-controls="qp-2" aria-selected="false"><b>2</b>Checklist</button>
               <button class="qtab" type="button" role="tab" id="qt-3" aria-controls="qp-3" aria-selected="false"><b>3</b>Results</button>
-              <button class="qtab" type="button" role="tab" id="qt-4" aria-controls="qp-4" aria-selected="false"><b>4</b>Evidence</button>
-              <button class="qtab" type="button" role="tab" id="qt-5" aria-controls="qp-5" aria-selected="false"><b>5</b>Tracking</button>
+              <button class="qtab" type="button" role="tab" id="qt-4" aria-controls="qp-4" aria-selected="false"><b>4</b>Tracking</button>
             </div>
             <div class="qpanel" id="qp-1" role="tabpanel" aria-labelledby="qt-1">
               <div class="shot"><div class="shot-scroll"><img src="qc-tools/1-task.jpg" width="2000" height="693" loading="lazy" alt="QC Tools task page: description form and four progress steps"></div></div>
@@ -548,16 +547,12 @@ footer .wrap { padding-block: 26px 40px; font-family: var(--f-mono); font-size: 
               <p class="caption">QA edits the test cases and locks them. The AI tests against this locked version; changing a case means unlocking it first. <a href="qc-tools/2-checklist.jpg" target="_blank" rel="noopener">Open full size ↗</a></p>
             </div>
             <div class="qpanel" id="qp-3" role="tabpanel" aria-labelledby="qt-3">
-              <div class="shot"><div class="shot-scroll"><img src="qc-tools/3-results.jpg" width="2000" height="885" loading="lazy" alt="Results table showing each case's result, who ran it, the time and the build"></div></div>
-              <p class="caption">One real Android task with 90 cases. Each case records its result, who ran it (Claude or QA), the time and the build. Failed and Not Testable cases can be rerun on their own. <a href="qc-tools/3-results.jpg" target="_blank" rel="noopener">Open full size ↗</a></p>
+              <div class="shot"><div class="shot-scroll"><img src="qc-tools/3-results.jpg" width="2000" height="760" loading="lazy" alt="Results from one section of a task: rows marked Passed, Failed, Not Testable and Skipped, each with who ran it, the time, the build and evidence"></div></div>
+              <p class="caption">One section of a real Android task with 90 cases, showing every result type: Passed, Failed, Not Testable and Skipped. Each case records who ran it (Claude or QA), the time and the build, plus a note, a bug reference and evidence such as screenshots or logcat files. <a href="qc-tools/3-results.jpg" target="_blank" rel="noopener">Open full size ↗</a></p>
             </div>
             <div class="qpanel" id="qp-4" role="tabpanel" aria-labelledby="qt-4">
-              <div class="shot"><div class="shot-scroll"><img src="qc-tools/4-evidence.jpg" width="2000" height="240" loading="lazy" alt="Three result rows with notes, a bug reference and screenshots"></div></div>
-              <p class="caption">Selected rows from the same task. A result can carry a note, a bug reference and screenshots or logs. <a href="qc-tools/4-evidence.jpg" target="_blank" rel="noopener">Open full size ↗</a></p>
-            </div>
-            <div class="qpanel" id="qp-5" role="tabpanel" aria-labelledby="qt-5">
-              <div class="shot"><div class="shot-scroll"><img src="qc-tools/5-tracking.jpg" width="1400" height="872" loading="lazy" alt="Tracking dashboard: 323 spec rows, 8 passed, 2 failed, with event rows matched to the spec"></div></div>
-              <p class="caption">An earlier version, then called Auto Tracking Test, of what is now the Tracking area. In this recorded session 10 of 323 spec rows had been reached: 8 pass, and 2 fail because <code>app_open_from</code> sent <code>open_from=default</code>, which the spec does not allow. The other 313 rows stayed not tested. <a href="qc-tools/5-tracking.jpg" target="_blank" rel="noopener">Open full size ↗</a></p>
+              <div class="shot"><div class="shot-scroll"><img src="qc-tools/4-tracking.jpg" width="1400" height="872" loading="lazy" alt="Tracking dashboard: 323 spec rows, 8 passed, 2 failed, with event rows matched to the spec"></div></div>
+              <p class="caption">An earlier version, then called Auto Tracking Test, of what is now the Tracking area. In this recorded session 10 of 323 spec rows had been reached: 8 pass, and 2 fail because <code>app_open_from</code> sent <code>open_from=default</code>, which the spec does not allow. The other 313 rows stayed not tested. <a href="qc-tools/4-tracking.jpg" target="_blank" rel="noopener">Open full size ↗</a></p>
             </div>
           </div>
           <div class="block demo-block">
