@@ -2,7 +2,7 @@
 """Validate Android tracking events from logcat against a tracking spec.
 
 Public demo with fake data. It re-implements the validation idea behind an
-internal QA dashboard; it is not that tool's source code.
+internal QC tool; it is not that tool's source code.
 
 Usage:
     python3 validator.py --spec spec/sample_tracking_spec.csv --log logs/sample_session.log
@@ -347,7 +347,7 @@ tr.r-fail td:first-child {{ box-shadow: inset 3px 0 var(--fail); }}
 <body><main>
 <h1>Tracking Validator Demo</h1>
 <p class="muted">Spec <code>{e(spec_name)}</code> · log <code>{e(log_name)}</code> · {result.lines_read} log lines read</p>
-<div class="banner">Demo with fake data for a made-up fitness app. It re-implements the validation idea behind an internal QA dashboard; it is not that tool's code.
+<div class="banner">Demo with fake data for a made-up fitness app. It re-implements the validation idea behind an internal QC tool; it is not that tool's code.
 <a href="https://github.com/BuiKhanh99/BuiKhanh99.github.io/tree/main/tracking-demo">README and source</a> · <a href="../#cs-01">Back to portfolio</a></div>
 <div class="tiles">
 <div class="tile"><b>{len(result.spec)}</b><span class="muted">spec rows</span></div>
